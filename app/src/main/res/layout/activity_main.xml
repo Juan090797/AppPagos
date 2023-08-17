@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/scan_barcode_button"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onScanButtonClicked"
+            android:text="@string/scan_barcode_button"
+            app:icon="?android:attr/fingerprintAuthDrawable" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agregar"
+            app:icon="@android:drawable/ic_menu_save" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#03A9F4"
+        android:gravity="center"
+        android:text="INFORMACION DEL DOCUMENTO" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textViewNroDoc"
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:background="#86CEEF"
+            android:text="Nª Doc.:" />
+        <EditText
+            android:id="@+id/editTextNroDoc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:hint="Ingrese el Nº Documento" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textViewRuc1"
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:background="#86CEEF"
+            android:text="RUC:" />
+        <EditText
+            android:id="@+id/editTextRuc1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:hint="Ingrese el RUC" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textViewRazonSocial1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#86CEEF"
+            android:text="Razón Social:" />
+        <EditText
+            android:id="@+id/editTextRazonSocial1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:hint="Ingrese la Razón Social" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textViewDireccion"
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:background="#86CEEF"
+            android:text="Direccion:" />
+        <EditText
+            android:id="@+id/editTextDireccion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:hint="Ingrese la Direccion" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textViewFecha"
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:background="#86CEEF"
+            android:text="Fecha:" />
+        <EditText
+            android:id="@+id/editTextFecha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:hint="Ingrese la fecha de emision" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewIGV"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textViewIGV"
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:background="#86CEEF"
+            android:text="IGV:" />
+        <EditText
+            android:id="@+id/editTextIGV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:hint="Ingrese el IGV" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textViewTotal"
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:background="#86CEEF"
+            android:text="Total:" />
+        <EditText
+            android:id="@+id/editTextTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:hint="Ingrese el total" />
+    </LinearLayout>
+
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
