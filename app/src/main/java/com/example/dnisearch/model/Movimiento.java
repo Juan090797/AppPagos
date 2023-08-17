@@ -3,7 +3,7 @@ package com.example.dnisearch.model;
 import java.util.Date;
 
 public class Movimiento {
-    private Integer id;
+    private int id;
     private String detalle;
     private float total;
     private String tipoMovimiento;
@@ -11,18 +11,19 @@ public class Movimiento {
     private Date fecha_update;
     private String tarjeta_id;
 
-    public Movimiento(String detalle, float total, String tipoMovimiento, String tarjetaId) {
+    public Movimiento(int id,String detalle, float total, String tipoMovimiento, String tarjetaId) {
+        this.id = id;
         this.detalle = detalle;
         this.total = total;
         this.tipoMovimiento = tipoMovimiento;
         this.tarjeta_id = tarjetaId;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

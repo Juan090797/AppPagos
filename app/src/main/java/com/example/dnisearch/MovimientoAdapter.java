@@ -27,6 +27,7 @@ public class MovimientoAdapter extends RecyclerView.Adapter<MovimientoAdapter.Mo
     @Override
     public void onBindViewHolder(@NonNull MovimientoViewHolder holder, int position) {
         Movimiento movimiento = movimientos.get(position);
+        Log.d("PRUEBA"," id: " +movimiento.getId());
         holder.textViewId.setText(String.valueOf(movimiento.getId()));
         holder.textViewDetalle.setText(movimiento.getDetalle());
         holder.textViewTotal.setText(String.valueOf(movimiento.getTotal()));

@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:onClick="onScanButtonClicked"
             android:text="@string/scan_barcode_button"
+            android:textSize="12sp"
             app:icon="?android:attr/fingerprintAuthDrawable" />
 
         <Button
@@ -23,8 +24,18 @@
             style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Agregar"
+            android:textSize="12sp"
+            android:text="ADD"
             app:icon="@android:drawable/ic_menu_save" />
+
+        <Button
+            android:id="@+id/btnUpdate"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="UPDATE"/>
+
     </LinearLayout>
 
     <TextView

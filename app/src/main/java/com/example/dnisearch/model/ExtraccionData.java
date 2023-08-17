@@ -17,33 +17,24 @@ public class ExtraccionData {
     public String nombre,dni,direccion,Razon_Social;
     public String getSuccessfulMessage(Barcode barcode,String TipoDocumento) {
         String barcodeValue;
-        if (TipoDocumento.equals("ruc")){
-            String valor = barcode.getDisplayValue();
-            Log.d("PRUEBA",valor);
+        if (TipoDocumento.equals("ruc")) {
+            String valor = barcode.getDisplayValue().replaceAll("\\s+", "");
             String[] partes = valor.split("\\|");
-            Log.d("PRUEBA",partes[0]);
-            for (String parte : partes) {
-                Log.d("PRUEBA",parte);
-            }
-            Log.d("PRUEBA",valor.substring(0,11));
-            String jsonPersona = obtenerDatosByRUC(valor.substring(0,11));
+            String jsonPersona = obtenerDatosByRUC(partes[0].trim());
+            String[] nuevosDatos = new String[0];
             try {
                 JSONObject jsonObj = new JSONObject(jsonPersona);
                 Razon_Social = jsonObj.getString("nombre");
                 direccion = jsonObj.getString("direccion");
+                nuevosDatos = new String[]{Razon_Social, direccion};
             } catch (JSONException e) {
-                Log.d("PRUEBA",e.toString());
+                Log.d("PRUEBA", e.toString());
             }
-            String[] nuevoArray = new String[partes.length + 2];
-            System.arraycopy(partes, 0, nuevoArray, 0, partes.length);
-            nuevoArray[nuevoArray.length - 2] = Razon_Social;
-            nuevoArray[nuevoArray.length - 1] = direccion;
-            Log.d("PRUEBA", nuevoArray.toString());
-            for (String nuevo : nuevoArray) {
-                Log.d("PRUEBA",nuevo);
-            }
-            //barcodeValue = partes.toString();
-            barcodeValue = String.join("\n", nuevoArray);
+            String[] nuevoArray = new String[partes.length + nuevosDatos.length];
+            System.arraycopy(nuevosDatos, 0, nuevoArray, 0, nuevosDatos.length);
+            // Copiar los datos originales después de los nuevos datos en el arreglo resultado
+            System.arraycopy(partes, 0, nuevoArray, nuevosDatos.length, partes.length);
+            barcodeValue = String.join("|", nuevoArray);
         }
         else {
             String jsonPersona = obtenerDatosByDni(barcode.getDisplayValue());
