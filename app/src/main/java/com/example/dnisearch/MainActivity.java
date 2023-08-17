@@ -70,15 +70,20 @@ public class MainActivity extends AppCompatActivity {
                         //.addOnSuccessListener(barcode -> barcodeResultView.setText(extraccionData.getSuccessfulMessage(barcode,tipo)))
                         .addOnSuccessListener(barcode -> {
                             String dataArray = extraccionData.getSuccessfulMessage(barcode, tipo);
+
                             String[] partes = dataArray.split("\\n");
-                            String nroDoc= partes[2]+"-"+partes[3];
-                            editTextRuc1.setText(partes[0]);
+
+                            editTextRuc1.setText(dataArray);
+                            editTextIGV.setText(partes[4]);
+                            editTextTotal.setText(partes[5]);
+                            //String nroDoc= partes[2]+"-"+partes[3];
+                            /*editTextRuc1.setText(partes[0]);
                             editTextRazonSocial1.setText(partes[10]);
                             editTextIGV.setText(partes[4]);
                             editTextTotal.setText(partes[5]);
                             editTextDireccion.setText(partes[11]);
                             editTextFecha.setText(partes[6]);
-                            editTextNroDoc.setText(nroDoc);
+                            editTextNroDoc.setText(nroDoc);*/
 
                         });
                         //.addOnFailureListener(e -> barcodeResultView.setText(extraccionData.getErrorMessage(e)))
@@ -90,11 +95,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String totalText = editTextTotal.getText().toString();
-                String detalle = "Ruc: " + editTextRuc1.getText().toString()
+                /*String detalle = "Ruc: " + editTextRuc1.getText().toString()
                         + "Razon_social: " + editTextRazonSocial1.getText().toString()
                         + "Direccion: " + editTextDireccion.getText().toString()
                         + "Nº Doc: " + editTextNroDoc.getText().toString()
-                        + "Fecha: " + editTextFecha.getText().toString();
+                        + "Fecha: " + editTextFecha.getText().toString();*/
+                String detalle = editTextRuc1.getText().toString();
                 float totalValue = Float.parseFloat(totalText);
                 Movimiento movimiento = new Movimiento(detalle, totalValue, "EGRESOS", "123456");
                 long newRowId = dbHelper.insertMovimiento(movimiento);

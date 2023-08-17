@@ -22,11 +22,11 @@ public class ExtraccionData {
             String valor = barcode.getDisplayValue();
             Log.d("PRUEBA",valor);
             String[] partes = valor.split("\\|");
-            Log.d("PRUEBA",partes[0]);
+            //Log.d("PRUEBA",partes[0]);
             for (String parte : partes) {
                 Log.d("PRUEBA",parte);
             }
-            Log.d("PRUEBA",valor.substring(0,11));
+            //Log.d("PRUEBA",valor.substring(0,11));
             String jsonPersona = obtenerDatosByRUC(valor.substring(0,11));
             try {
                 JSONObject jsonObj = new JSONObject(jsonPersona);
@@ -37,14 +37,15 @@ public class ExtraccionData {
             }
             //int total = partes.length;
             //Log.d("PRUEBA", "total: " + total);
-            String[] nuevoArray = new String[partes.length + 2];
+            String[] nuevoArray = new String[partes.length];
             System.arraycopy(partes, 0, nuevoArray, 0, partes.length);
+            /*System.arraycopy(partes, 0, nuevoArray, 0, partes.length);
             nuevoArray[nuevoArray.length - 2] = Razon_Social;
-            nuevoArray[nuevoArray.length - 1] = direccion;
-            Log.d("PRUEBA", nuevoArray.toString());
-            for (String nuevo : nuevoArray) {
+            nuevoArray[nuevoArray.length - 1] = direccion;*/
+            Log.d("PRUEBA","NUEVO ARRAY: " + nuevoArray.toString());
+            /*for (String nuevo : nuevoArray) {
                 Log.d("PRUEBA",nuevo);
-            }
+            }*/
             //barcodeValue = partes.toString();
             barcodeValue = String.join("\n", nuevoArray);
         }
