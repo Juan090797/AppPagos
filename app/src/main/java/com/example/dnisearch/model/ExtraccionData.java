@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Locale;
 
 public class ExtraccionData {
     public String nombre,dni,direccion,Razon_Social;
@@ -35,8 +34,6 @@ public class ExtraccionData {
             } catch (JSONException e) {
                 Log.d("PRUEBA",e.toString());
             }
-            //int total = partes.length;
-            //Log.d("PRUEBA", "total: " + total);
             String[] nuevoArray = new String[partes.length + 2];
             System.arraycopy(partes, 0, nuevoArray, 0, partes.length);
             nuevoArray[nuevoArray.length - 2] = Razon_Social;
