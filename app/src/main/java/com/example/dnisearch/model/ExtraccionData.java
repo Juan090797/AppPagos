@@ -47,13 +47,8 @@ public class ExtraccionData {
             }
             //barcodeValue = partes.toString();
             barcodeValue = String.join("\n", nuevoArray);
-                    /*String.format(
-                            Locale.US,
-                            "Display Value: %s\nRazon Social: %s\nDireccion: %s",
-                            barcode.getDisplayValue(),
-                            Razon_Social != null ? Razon_Social : "Razon Social no encontrado",
-                            direccion != null ? direccion : "Direccion no encontrado"); */
-        }else {
+        }
+        else {
             String jsonPersona = obtenerDatosByDni(barcode.getDisplayValue());
             try {
                 JSONObject jsonObj = new JSONObject(jsonPersona);
@@ -63,12 +58,6 @@ public class ExtraccionData {
                 Log.d("PRUEBA",e.toString());
             }
             barcodeValue = dni;
-                    /*String.format(
-                            Locale.US,
-                            "Display Value: %s\nNombre: %s\ndni: %s",
-                            barcode.getDisplayValue(),
-                            nombre != null ? nombre : "Nombre no encontrado",
-                            dni != null ? dni : "DNI no encontrado");*/
         }
 
         return barcodeValue;
