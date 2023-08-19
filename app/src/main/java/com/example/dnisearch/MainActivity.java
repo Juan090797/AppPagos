@@ -3,7 +3,6 @@ package com.example.dnisearch;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -11,19 +10,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.dnisearch.db.DBHelper;
 import com.example.dnisearch.model.ExtraccionData;
 import com.example.dnisearch.model.Movimiento;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanner;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanning;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     private RecyclerView recyclerView;
     private MovimientoAdapter movimientoAdapter;
     private List<Movimiento> movimientos = new ArrayList<>();
@@ -58,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
         editTextDireccion = findViewById(R.id.editTextDireccion);
         editTextFecha = findViewById(R.id.editTextFecha);
         editTextNroDoc = findViewById(R.id.editTextNroDoc);
-
-
         scan_barcode_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,11 +90,11 @@ public class MainActivity extends AppCompatActivity {
                     String totalText = editTextTotal.getText().toString();
                     String detalle = "Ruc: " + editTextRuc1.getText().toString()
                             + "Razon_social: " + editTextRazonSocial1.getText().toString()
-                            + "Direccion: " + editTextDireccion.getText().toString()
-                            + "Nº Doc: " + editTextNroDoc.getText().toString()
-                            + "Fecha: " + editTextFecha.getText().toString();
+                            + " Direccion: " + editTextDireccion.getText().toString()
+                            + " Nº Doc: " + editTextNroDoc.getText().toString()
+                            + " Fecha: " + editTextFecha.getText().toString();
                     float totalValue = Float.parseFloat(totalText);
-                    Movimiento movimiento = new Movimiento(1,detalle, totalValue, "EGRESOS", "123456");
+                    Movimiento movimiento = new Movimiento(detalle, totalValue, "EGRESOS", "123456");
                     long newRowId = dbHelper.insertMovimiento(movimiento);
                     limpiar();
                     // Luego, notifica al adaptador que los datos han cambiado para que se actualicen en la interfaz de usuario
@@ -148,15 +142,13 @@ public class MainActivity extends AppCompatActivity {
         );
 
         movimientos.clear(); // Limpiar la lista actual antes de cargar los nuevos datos
-
         while (cursor.moveToNext()) {
-            int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.COLUMN_ID));
             String detalle = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.COLUMN_DETALLE));
             float total = cursor.getFloat(cursor.getColumnIndexOrThrow(DBHelper.COLUMN_TOTAL));
             String tipoMovimiento = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.COLUMN_TIPO_MOVIMIENTO));
             String tarjetaId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.COLUMN_TARJETA_ID));
 
-            Movimiento movimiento = new Movimiento(id,detalle, total, tipoMovimiento, tarjetaId);
+            Movimiento movimiento = new Movimiento(detalle, total, tipoMovimiento, tarjetaId);
             movimientos.add(movimiento);
         }
 

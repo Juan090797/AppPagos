@@ -11,8 +11,7 @@ public class Movimiento {
     private Date fecha_update;
     private String tarjeta_id;
 
-    public Movimiento(int id,String detalle, float total, String tipoMovimiento, String tarjetaId) {
-        this.id = id;
+    public Movimiento(String detalle, float total, String tipoMovimiento, String tarjetaId) {
         this.detalle = detalle;
         this.total = total;
         this.tipoMovimiento = tipoMovimiento;

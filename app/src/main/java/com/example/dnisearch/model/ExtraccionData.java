@@ -35,6 +35,7 @@ public class ExtraccionData {
             // Copiar los datos originales después de los nuevos datos en el arreglo resultado
             System.arraycopy(partes, 0, nuevoArray, nuevosDatos.length, partes.length);
             barcodeValue = String.join("|", nuevoArray);
+            Log.d("PRUEBA", barcodeValue);
         }
         else {
             String jsonPersona = obtenerDatosByDni(barcode.getDisplayValue());

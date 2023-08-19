@@ -1,6 +1,5 @@
 package com.example.dnisearch;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,8 +26,7 @@ public class MovimientoAdapter extends RecyclerView.Adapter<MovimientoAdapter.Mo
     @Override
     public void onBindViewHolder(@NonNull MovimientoViewHolder holder, int position) {
         Movimiento movimiento = movimientos.get(position);
-        Log.d("PRUEBA"," id: " +movimiento.getId());
-        holder.textViewId.setText(String.valueOf(movimiento.getId()));
+        holder.textViewId.setText(String.valueOf((position+1)));
         holder.textViewDetalle.setText(movimiento.getDetalle());
         holder.textViewTotal.setText(String.valueOf(movimiento.getTotal()));
         // Configura otros elementos de la tarjeta aquí si es necesario
